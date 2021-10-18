@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,30 +13,29 @@ namespace labs22._10
         private BankAccountType type;
 
         
-        public  Account FillTheDataOfSavingType(decimal valueOfMoney)
+        public void FillTheDataOfSavingType(decimal newValue)
         {
-            var acc = new Account();
-            acc.type = BankAccountType.corrent;
-            acc.id = new Guid();
-            acc.valueOfMoney = Decimal.Parse(Console.ReadLine());
-            return acc ;    
+            
+            type = BankAccountType.corrent;
+            id = Guid.NewGuid();
+            valueOfMoney = newValue;
+               
         }
-        public  Account FillTheDataOfCorrentType(decimal valueOfMoney)
+        public void FillTheDataOfCorrentType(decimal newValue)
         {
-            var acc = new Account();
-            acc.type = BankAccountType.corrent;
-            acc.id = new Guid();
-            acc.valueOfMoney = Decimal.Parse(Console.ReadLine());
-            return acc;
+
+            type = BankAccountType.corrent;
+            id = Guid.NewGuid();
+            valueOfMoney = newValue;
+
+        }
+        public void WriteTheDataOfCorrentType()
+        {
+            Console.WriteLine($"Type:{type} \n ID : {id} \n Value of money : {valueOfMoney}");
+        }
+        public void WriteTheDataOfSavingType()
+        {
+            Console.WriteLine($"Type:{type} \n ID : {id} \n Value of money : {valueOfMoney}");
         }
 
-        public void WriteTheDataOfCorrentType(Account FillTheDataOfCorrentType)
-        {
-            Console.WriteLine($"Type:{type} \n ID : {id} \n Value of money : {valueOfMoney}");           
-        }
     }
-
-
-
-
-}
