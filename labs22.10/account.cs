@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace labs22._10
 {
+    public enum BankAccountType
+    { corrent, saving }
+
     public class Account
     {
         private Guid id;
@@ -13,10 +17,26 @@ namespace labs22._10
         private BankAccountType type;
 
         
+        public void DepositMoney(decimal depositValue)
+        {
+            valueOfMoney += depositValue;
+        }
+        public void WithdrawMoney(decimal withdrawValue)
+        {
+            if (withdrawValue>= valueOfMoney)
+            {
+                valueOfMoney -= withdrawValue;
+            }
+            else
+            {
+                Console.WriteLine("insufficient funds");
+            }
+            
+        }
         public void FillTheDataOfSavingType(decimal newValue)
         {
             
-            type = BankAccountType.corrent;
+            type = BankAccountType.saving;
             id = Guid.NewGuid();
             valueOfMoney = newValue;
                
@@ -37,5 +57,5 @@ namespace labs22._10
         {
             Console.WriteLine($"Type:{type} \n ID : {id} \n Value of money : {valueOfMoney}");
         }
-
     }
+}
